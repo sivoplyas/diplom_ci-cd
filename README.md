@@ -216,8 +216,7 @@ resource "yandex_compute_instance" "worker" {
   }
 }
  ```
-### s3.tf (использование bucket для хранения diplom.tfstate и базы данных ydb "ssa-diplom" и таблица "ssa-diplom-table" для хранения блокировок)
-### нужно из п.1.1 файла terraform.tfstate взять значение document_api_endpoint и записать его в dynamodddb 
+### s3.tf (использование bucket для хранения diplom.tfstate и базы данных ydb "ssa-diplom" и таблица "ssa-diplom-table" для хранения блокировок). Нужно из п.1.1 файла terraform.tfstate взять значение document_api_endpoint и записать его в dynamodb 
  ```javascript
 terraform {
   backend "s3" {
