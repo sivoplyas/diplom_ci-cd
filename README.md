@@ -10,7 +10,8 @@ terraform plan
 ![111-02](https://github.com/user-attachments/assets/d3d7f2dd-28ab-4f3e-9e52-c042ccdeeefe)
 
 terraform apply
-![111-03](https://github.com/user-attachments/assets/51f79ea5-a37c-4f2b-b294-d6971d1d3b10)
+![111-03](https://github.com/user-attachments/assets/716c70c2-7191-4fb4-8bc0-6d009eef2a73)
+
 
 Проверяем результат:
 Создался сервисный аккаунт "ssa-diplom", который будет в дальнейшем использоваться Terraform для работы с инфраструктурой с необходимыми и достаточными правами - ролью "editor". 
