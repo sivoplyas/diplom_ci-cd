@@ -33,7 +33,7 @@ provider "aws" {
     dynamodb = yandex_ydb_database_serverless.ssa-diplom.document_api_endpoint
   }
 }
-
+```
 ## провяем код:
 terraform init
 ![111-01](https://github.com/user-attachments/assets/ff5da5cf-7178-4c6c-955b-e86dd2e26782)
