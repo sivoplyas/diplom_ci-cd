@@ -121,3 +121,25 @@ resource "aws_dynamodb_table" "ssa-diplom-table" {
 ## cоздалась база данных ydb "ssa-diplom" и в ней таблица "ssa-diplom-table" для хранения блокировок (урок "Использование Terraform в команде")
 ![111-08](https://github.com/user-attachments/assets/53b1e78c-064d-4c39-b0ec-52861c9d802c)
 ![111-07](https://github.com/user-attachments/assets/0f8b4b54-02de-4157-9d1e-db0fcfe5c780)
+
+## 1.2
+## проверяем и применяем код:
+## terraform init
+![222-01](https://github.com/user-attachments/assets/2f9d8039-188d-4b8f-89e4-a88710a6b5a8)
+
+## terraform plan
+![222-02](https://github.com/user-attachments/assets/a6862860-79e0-4f55-bf01-e6cd98ba3db1)
+
+## terraform apply
+![222-03](https://github.com/user-attachments/assets/e443b863-f611-4279-8ca2-f43e45c0807b)
+
+![222-04](https://github.com/user-attachments/assets/f2a86152-8393-415b-bcb9-e411d0c2b2af)
+![222-05](https://github.com/user-attachments/assets/c15d07bf-672d-4772-ba79-f4a881165d27)
+![222-06](https://github.com/user-attachments/assets/04782b46-c9fa-4f0e-beee-58bb2c269266)
+![222-07](https://github.com/user-attachments/assets/86d8a194-e0f0-4209-b3b2-924e1fdfe0d3)
+![222-08](https://github.com/user-attachments/assets/9bd4e83d-735f-499c-b475-64fe6ef3dacd)
+![222-09](https://github.com/user-attachments/assets/9293132c-31f6-48ee-b9ec-6af8cd324577)
+
+
+## terraform destroy
+![222-10](https://github.com/user-attachments/assets/5925af69-9038-47d7-824f-7cb2c1e85699)
