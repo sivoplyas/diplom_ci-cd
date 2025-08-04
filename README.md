@@ -122,9 +122,126 @@ resource "aws_dynamodb_table" "ssa-diplom-table" {
 ![111-08](https://github.com/user-attachments/assets/53b1e78c-064d-4c39-b0ec-52861c9d802c)
 ![111-07](https://github.com/user-attachments/assets/0f8b4b54-02de-4157-9d1e-db0fcfe5c780)
 
-## 1.2
+## 1.2 Создаем инфраструктуру
+## network.tf (создаем сети)
+ ```javascript
+resource "yandex_vpc_network" "ssa_network" {
+  name = var.vpc_name
+}
+
+resource "yandex_vpc_subnet" "ssa_network_subnet1" {
+  name           = var.subnet1
+  zone           = var.zone1
+  network_id     = yandex_vpc_network.ssa_network.id
+  v4_cidr_blocks = var.cidr1
+}
+
+resource "yandex_vpc_subnet" "ssa_network_subnet2" {
+  name           = var.subnet2
+  zone           = var.zone2
+  network_id     = yandex_vpc_network.ssa_network.id
+  v4_cidr_blocks = var.cidr2
+}
+ ```
+## instans_m_w.tf (создание master и worker)
+ ```javascript
+resource "yandex_compute_instance" "master" {
+  name        = "${var.vm_master[0].vm_name}"
+  platform_id = var.vm_master[0].platform_id
+  allow_stopping_for_update = true
+  count = var.vm_master[0].count_vms
+  zone = var.zone1
+  resources {
+    cores         = var.vm_master[0].cores
+    memory        = var.vm_master[0].memory
+    core_fraction = var.vm_master[0].core_fraction
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = var.vm_master[0].image_id
+      type     = var.boot_disk[0].type
+      size     = var.boot_disk[0].size
+    }
+  }
+
+  metadata = {
+    ssh-keys = "${var.default_user}:${local.public_ssh_key_pub}"
+    serial-port-enable = var.serial_port
+    #user-data          = data.template_file.cloudinit.rendered
+  }
+
+  network_interface {
+    subnet_id = yandex_vpc_subnet.ssa_network_subnet1.id
+    nat       = true
+  }
+  scheduling_policy {
+    preemptible = true
+  }
+}
+
+resource "yandex_compute_instance" "worker" {
+  depends_on = [yandex_compute_instance.master]
+  count      = var.worker_count
+  allow_stopping_for_update = true
+  name          = "worker-${count.index + 1}"
+  platform_id   = var.vm_worker.platform_id
+  zone = "worker-${count.index + 1}" == "worker-1" ? var.zone1 : var.zone2
+  resources {
+    cores         = var.vm_worker.cpu
+    memory        = var.vm_worker.ram
+    core_fraction = var.vm_worker.core_fraction
+    }
+   boot_disk {
+    initialize_params {
+        image_id     = var.vm_worker.image_id
+        type         = var.boot_disk[0].type
+        size         = var.boot_disk[0].size
+    }
+  }
+
+  metadata = {
+    ssh-keys           = "${var.default_user}:${local.public_ssh_key_pub}"
+    serial-port-enable = var.serial_port
+    #user-data          = data.template_file.cloudinit.rendered
+  }
+
+  network_interface {
+    subnet_id          = "worker-${count.index + 1}" == "worker-1" ? yandex_vpc_subnet.ssa_network_subnet1.id : yandex_vpc_subnet.ssa_network_subnet2.id
+    nat                = true
+  }
+
+  scheduling_policy {
+    preemptible = true
+  }
+}
+ ```
+## s3.tf (использование bucket для хранения diplom.tfstate и базы данных ydb "ssa-diplom" и таблица "ssa-diplom-table" для хранения блокировок)
+ ```javascript
+terraform {
+  backend "s3" {
+    region                   = "ru-central1"
+#    profile                  = "default"
+    bucket                   = "ssa-bucket"
+    key                      = "diplom.tfstate"
+    shared_credentials_files = ["s3.config"]
+    endpoints = {
+      s3       = "https://storage.yandexcloud.net"
+      dynamodb = "https://docapi.serverless.yandexcloud.net/ru-central1/b1gft7eo5qqq0f******/etnuh39o6n6ohk*****"
+    }
+    dynamodb_table = "ssa-diplom-table"
+    skip_credentials_validation = true
+    skip_region_validation      = true
+    skip_requesting_account_id  = true
+    skip_s3_checksum            = true
+  }
+}
+ ```
+## !!! Перед проверкой нам нужно из п.1.1  взять secret_key и access_key и записать их в s3.config
+![222-3](https://github.com/user-attachments/assets/3ed399cb-c663-43b0-b07a-dad58fb93514)
+
 ## проверяем и применяем код:
-## terraform init
+## terraform init -backend-config=s3.config
 ![222-01](https://github.com/user-attachments/assets/2f9d8039-188d-4b8f-89e4-a88710a6b5a8)
 
 ## terraform plan
