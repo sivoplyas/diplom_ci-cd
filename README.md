@@ -133,13 +133,18 @@ resource "aws_dynamodb_table" "ssa-diplom-table" {
 ## terraform apply
 ![222-03](https://github.com/user-attachments/assets/e443b863-f611-4279-8ca2-f43e45c0807b)
 
+## Проверяем результат:
+## созданы 3 виртуальные машины и сети
 ![222-04](https://github.com/user-attachments/assets/f2a86152-8393-415b-bcb9-e411d0c2b2af)
+## создана сеть
 ![222-05](https://github.com/user-attachments/assets/c15d07bf-672d-4772-ba79-f4a881165d27)
+## созданы 2 подсети в разных зонах
 ![222-06](https://github.com/user-attachments/assets/04782b46-c9fa-4f0e-beee-58bb2c269266)
+## созданы 3 виртуальные машины (2 workers и 1 master) в разных зонах
 ![222-07](https://github.com/user-attachments/assets/86d8a194-e0f0-4209-b3b2-924e1fdfe0d3)
+## в s3 бакете "ssa-bucket" записался diplom.tfstate
 ![222-08](https://github.com/user-attachments/assets/9bd4e83d-735f-499c-b475-64fe6ef3dacd)
+## в таблице ssa-diplom-table базы данных ssa-diplom появилась запись
 ![222-09](https://github.com/user-attachments/assets/9293132c-31f6-48ee-b9ec-6af8cd324577)
-
-
-## terraform destroy
+## terraform destroy выполнился без ошибок
 ![222-10](https://github.com/user-attachments/assets/5925af69-9038-47d7-824f-7cb2c1e85699)
