@@ -97,7 +97,7 @@ resource "aws_dynamodb_table" "ssa-diplom-table" {
 }
  ```
 
-## провяем код:
+## проверяем и применяем код:
 terraform init
 ![111-01](https://github.com/user-attachments/assets/ff5da5cf-7178-4c6c-955b-e86dd2e26782)
 
