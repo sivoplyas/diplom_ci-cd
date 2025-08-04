@@ -1,7 +1,7 @@
 # diplom_ci-cd
 ## 1) Создание облачной инфраструктуры
 
-## 1.1. Создание backend s3 для Yandex Cloud storage с блокировками state
+## 1.1 Создание backend s3 для Yandex Cloud storage с блокировками state
 Подготавливаем providers.tf по примеру настройки backend s3 для Yandex Cloud storage с блокировками state  (урок "Использование Terraform в команде")
 
 ## providers.tf
