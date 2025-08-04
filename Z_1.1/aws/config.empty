@@ -1,0 +1,4 @@
+[default]
+account_id = 123456789101
+skip_requesting_account_id=true
+region = eu-west-1
