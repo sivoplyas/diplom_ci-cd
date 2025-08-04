@@ -1,6 +1,6 @@
 # diplom_ci-cd
 ## 1) Создание облачной инфраструктуры
-##Code
+## providers.tf
  ```javascript
 terraform {
   required_providers {
