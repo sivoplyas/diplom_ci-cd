@@ -217,6 +217,7 @@ resource "yandex_compute_instance" "worker" {
 }
  ```
 ### s3.tf (использование bucket для хранения diplom.tfstate и базы данных ydb "ssa-diplom" и таблица "ssa-diplom-table" для хранения блокировок)
+### нужно из п.1.1 файла terraform.tfstate взять значение document_api_endpoint и записать его в dynamodddb 
  ```javascript
 terraform {
   backend "s3" {
@@ -237,7 +238,7 @@ terraform {
   }
 }
  ```
-### !!! Перед проверкой нам нужно из п.1.1  взять secret_key и access_key и записать их в s3.config
+### !!! Перед проверкой нам нужно из п.1.1 файла terraform.tfstate взять secret_key и access_key и записать их в s3.config
 ![222-3](https://github.com/user-attachments/assets/3ed399cb-c663-43b0-b07a-dad58fb93514)
 
 ### проверяем и применяем код:
