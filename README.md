@@ -4,7 +4,7 @@
 ## 1.1 Создание backend s3 для Yandex Cloud storage с блокировками state
 Подготавливаем providers.tf по примеру настройки backend s3 для Yandex Cloud storage с блокировками state  (урок "Использование Terraform в команде")
 
-## providers.tf
+### providers.tf
  ```javascript
 terraform {
   required_providers {
@@ -39,7 +39,7 @@ provider "aws" {
 }
 ```
 
-## ssa.tf
+### ssa.tf
  ```javascript
 resource "yandex_iam_service_account" "ssa" {
   folder_id = var.folder_id
@@ -97,33 +97,33 @@ resource "aws_dynamodb_table" "ssa-diplom-table" {
 }
  ```
 
-## проверяем и применяем код:
-## terraform init
+### проверяем и применяем код:
+### terraform init
 ![111-01](https://github.com/user-attachments/assets/ff5da5cf-7178-4c6c-955b-e86dd2e26782)
 
-## terraform plan
+### terraform plan
 ![111-02](https://github.com/user-attachments/assets/d3d7f2dd-28ab-4f3e-9e52-c042ccdeeefe)
 
-## terraform apply
+### terraform apply
 ![111-03](https://github.com/user-attachments/assets/716c70c2-7191-4fb4-8bc0-6d009eef2a73)
 
 
-## Проверяем результат:
+### Проверяем результат:
 Создался сервисный аккаунт "ssa-diplom", который будет в дальнейшем использоваться Terraform для работы с инфраструктурой с необходимыми и достаточными правами - ролью "editor". 
 ![111-04](https://github.com/user-attachments/assets/01055984-f5c4-4e4c-b98c-428cddb4eda0)
 
-## cоздался bucket с именем "ssa-bucket" для хранения tfstate.
+### cоздался bucket с именем "ssa-bucket" для хранения tfstate.
 ![111-05](https://github.com/user-attachments/assets/3ee3e32e-d8de-4b44-af02-8de4371c2354)
 
-## для сервисного аккаунта "ssa-diplom" добавлена роль "ydb.editor"
+### для сервисного аккаунта "ssa-diplom" добавлена роль "ydb.editor"
 ![111-06](https://github.com/user-attachments/assets/83ade725-e2e5-492f-bf54-0b385822f81c)
 
-## cоздалась база данных ydb "ssa-diplom" и в ней таблица "ssa-diplom-table" для хранения блокировок (урок "Использование Terraform в команде")
+### cоздалась база данных ydb "ssa-diplom" и в ней таблица "ssa-diplom-table" для хранения блокировок (урок "Использование Terraform в команде")
 ![111-08](https://github.com/user-attachments/assets/53b1e78c-064d-4c39-b0ec-52861c9d802c)
 ![111-07](https://github.com/user-attachments/assets/0f8b4b54-02de-4157-9d1e-db0fcfe5c780)
 
 ## 1.2 Создаем инфраструктуру
-## network.tf (создаем сети)
+### network.tf (создаем сети)
  ```javascript
 resource "yandex_vpc_network" "ssa_network" {
   name = var.vpc_name
@@ -143,7 +143,7 @@ resource "yandex_vpc_subnet" "ssa_network_subnet2" {
   v4_cidr_blocks = var.cidr2
 }
  ```
-## instans_m_w.tf (создание master и worker)
+### instans_m_w.tf (создание master и worker)
  ```javascript
 resource "yandex_compute_instance" "master" {
   name        = "${var.vm_master[0].vm_name}"
@@ -216,7 +216,7 @@ resource "yandex_compute_instance" "worker" {
   }
 }
  ```
-## s3.tf (использование bucket для хранения diplom.tfstate и базы данных ydb "ssa-diplom" и таблица "ssa-diplom-table" для хранения блокировок)
+### s3.tf (использование bucket для хранения diplom.tfstate и базы данных ydb "ssa-diplom" и таблица "ssa-diplom-table" для хранения блокировок)
  ```javascript
 terraform {
   backend "s3" {
@@ -237,31 +237,31 @@ terraform {
   }
 }
  ```
-## !!! Перед проверкой нам нужно из п.1.1  взять secret_key и access_key и записать их в s3.config
+### !!! Перед проверкой нам нужно из п.1.1  взять secret_key и access_key и записать их в s3.config
 ![222-3](https://github.com/user-attachments/assets/3ed399cb-c663-43b0-b07a-dad58fb93514)
 
-## проверяем и применяем код:
-## terraform init -backend-config=s3.config
+### проверяем и применяем код:
+### terraform init -backend-config=s3.config
 ![222-01](https://github.com/user-attachments/assets/2f9d8039-188d-4b8f-89e4-a88710a6b5a8)
 
-## terraform plan
+### terraform plan
 ![222-02](https://github.com/user-attachments/assets/a6862860-79e0-4f55-bf01-e6cd98ba3db1)
 
-## terraform apply
+### terraform apply
 ![222-03](https://github.com/user-attachments/assets/e443b863-f611-4279-8ca2-f43e45c0807b)
 
-## Проверяем результат:
-## созданы 3 виртуальные машины и сети
+### Проверяем результат:
+### созданы 3 виртуальные машины и сети
 ![222-04](https://github.com/user-attachments/assets/f2a86152-8393-415b-bcb9-e411d0c2b2af)
-## создана сеть
+### создана сеть
 ![222-05](https://github.com/user-attachments/assets/c15d07bf-672d-4772-ba79-f4a881165d27)
-## созданы 2 подсети в разных зонах
+### созданы 2 подсети в разных зонах
 ![222-06](https://github.com/user-attachments/assets/04782b46-c9fa-4f0e-beee-58bb2c269266)
-## созданы 3 виртуальные машины (2 workers и 1 master) в разных зонах
+### созданы 3 виртуальные машины (2 workers и 1 master) в разных зонах
 ![222-07](https://github.com/user-attachments/assets/86d8a194-e0f0-4209-b3b2-924e1fdfe0d3)
-## в s3 бакете "ssa-bucket" записался diplom.tfstate
+### в s3 бакете "ssa-bucket" записался diplom.tfstate
 ![222-08](https://github.com/user-attachments/assets/9bd4e83d-735f-499c-b475-64fe6ef3dacd)
-## в таблице ssa-diplom-table базы данных ssa-diplom появилась запись
+### в таблице ssa-diplom-table базы данных ssa-diplom появилась запись
 ![222-09](https://github.com/user-attachments/assets/9293132c-31f6-48ee-b9ec-6af8cd324577)
-## terraform destroy выполнился без ошибок
+### terraform destroy выполнился без ошибок
 ![222-10](https://github.com/user-attachments/assets/5925af69-9038-47d7-824f-7cb2c1e85699)
