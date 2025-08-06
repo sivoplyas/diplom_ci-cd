@@ -268,6 +268,7 @@ terraform {
 
 ## 2) Создание Kubernetes кластера
 Выполняем п. 1.2 Создаем инфраструктуру без команды destroy
+
 Инфраструктура поднялась.
 ![333-0000](https://github.com/user-attachments/assets/4a402002-c405-4548-8dc5-cbe6e5b755bf)
 
