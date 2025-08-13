@@ -287,8 +287,6 @@ terraform {
 Подключаемся к master (ssh 51.250.2.178) переходим в root и выполняем команду...
 ![333-3](https://github.com/user-attachments/assets/7d8bd310-77ba-449f-870e-281fe769a569)
 
-Копируем config на локальную машину и правим его...
-![333-5](https://github.com/user-attachments/assets/3f136767-7cd4-4449-9142-9a45324acc61)
-
+Копируем config на локальную машину и правим его...'''
 Выполняем команду на локальной машине
 ![333-4](https://github.com/user-attachments/assets/322eb98d-327a-428c-a884-8f2313da23d0)
