@@ -292,13 +292,12 @@ terraform {
 ![333-4](https://github.com/user-attachments/assets/322eb98d-327a-428c-a884-8f2313da23d0)
 
 ## 3) Создание тестового приложения
+### Создаем образ на локальной машине (docker build -t nginx:ssa .) и проверяем его работоспособность
 ![444-1](https://github.com/user-attachments/assets/e1fb6dff-b31b-4586-9b47-ee584a7f8357)
 
+### Создаем публичный репозиторий для тестового приложения куда и отправляем файлы для создания образа ![diplom_test_application](https://github.com/sivoplyas/diplom_test_application)
 ![444-2](https://github.com/user-attachments/assets/b04b3ae1-5d90-48d5-aa5a-74d396f99f50)
 
-### Создаем публичный репозиторий для тестового приложения куда и отправляем файлы для создания образа ![diplom_test_application](https://github.com/sivoplyas/diplom_test_application)
-
-### Создаем образ на локальной машине (docker build -t nginx:ssa .) и проверяем его работоспособность
 ![444-7](https://github.com/user-attachments/assets/098fcf25-4c60-4906-a13f-469ae4ef381a)
 
 ### Создаем в своем GitHub Package Registry (https://hub.docker.com) публичный репозиторий «diplom-ssa» и создаем для данного репозитория токен с правами чтение и запись
