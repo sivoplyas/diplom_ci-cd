@@ -371,6 +371,9 @@ jobs:
 ### Выполнение Workflow Docker Deploy
 ![555-5](https://github.com/user-attachments/assets/163dee98-759d-42f7-9dcc-558920ce255e)
 
+### Проверка создания образа в GitHub Package Registry c тегом v1.0.3
+![000000](https://github.com/user-attachments/assets/1ba7c567-41f0-4953-84e5-2bee2fd2ddc2)
+
 ### Проверяем развертывание в Kubernetes
 ![555-6](https://github.com/user-attachments/assets/34162bf6-4f17-4307-bfb2-5122a8468cfe)
 ![555-7](https://github.com/user-attachments/assets/fe6c6b07-ec27-4936-afe8-5accb3998fef)
