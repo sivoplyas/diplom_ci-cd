@@ -370,7 +370,7 @@ jobs:
 ![555-5](https://github.com/user-attachments/assets/163dee98-759d-42f7-9dcc-558920ce255e)
 
 ### Проверяем развертывание в Kubernetes образа
-![555-6](https://github.com/user-attachments/assets/7a4f3120-0603-4e07-8da2-609aaac06072)
+![555-6](https://github.com/user-attachments/assets/0870d934-196d-45ff-ae30-f58210eb28f3)
 ![555-7](https://github.com/user-attachments/assets/fe6c6b07-ec27-4936-afe8-5accb3998fef)
 ![555-8](https://github.com/user-attachments/assets/e0071e86-040a-4c95-821b-7b6c032ad754)
 
