@@ -443,3 +443,10 @@ jobs:
                 helm upgrade --install grafana -f ./grafana/values.yaml ./grafana/. --version 1.5.1 --namespace monitoring --create-namespace --wait
                 helm upgrade --install proxy -f ./proxy/values.yaml ./proxy/. --version 1.0.1 --namespace monitoring --create-namespace --wait
  ```
+### Выполнение Workflow Deploy monitoring
+![666-8](https://github.com/user-attachments/assets/2bb1e15d-13c2-4f79-ab5c-38439efe4c19)
+
+### Проверяем развертывание в Kubernetes
+![666-9](https://github.com/user-attachments/assets/2f31fc47-a927-4f6b-93fb-0ff2ac7ea454)
+![666-10](https://github.com/user-attachments/assets/af2db13e-aa2b-437b-b567-fb9b85132773)
+
