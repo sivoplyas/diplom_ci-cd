@@ -304,6 +304,7 @@ terraform {
 ### Создаем секреты для работы с GitHub Package Registry и  Kubernetes
 ![444-4](https://github.com/user-attachments/assets/e5a69ad5-e234-443d-9faa-7d5331ad52f8)
 
+### Полагаем что любые коммиты в репозитории с тестовым приложением будут проводиться в ветке отличной от “main”. Пишем код..
 ![444-5](https://github.com/user-attachments/assets/3e9cf50d-dd75-46ce-a929-24927a321df1)
 
 ![444-8](https://github.com/user-attachments/assets/b45b481a-c0ee-4686-ac8d-8be5b31230a5)
