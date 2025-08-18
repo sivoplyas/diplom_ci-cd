@@ -362,7 +362,7 @@ jobs:
 ![555-1](https://github.com/user-attachments/assets/63d1f7ec-0090-47ab-82df-a286e020bae3)
 ![555-3](https://github.com/user-attachments/assets/1854a9d9-d7fe-42e1-b6b8-18526e60815f)
 
-## Headless Services
+### Headless Services
 ![555-2](https://github.com/user-attachments/assets/40cf3267-8400-4b93-a385-235e40f19267)
 
 ### Устанавливаем тег для тестового приложения v1.0.3
