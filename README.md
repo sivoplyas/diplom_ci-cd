@@ -269,26 +269,26 @@ terraform {
 ## 2) Создание Kubernetes кластера
 Выполняем п. 1.2 Создаем инфраструктуру без команды destroy
 
-Инфраструктура поднялась.
+### Инфраструктура поднялась.
 ![333-0000](https://github.com/user-attachments/assets/4a402002-c405-4548-8dc5-cbe6e5b755bf)
 
-Заполняем файл inventory.ini в каталоге inventory
+### Заполняем файл inventory.ini в каталоге inventory
 ![333-001](https://github.com/user-attachments/assets/7cdf347b-c6ce-49e0-99dd-037c4b95b14f)
 
-Изменяем файл kubespray_install.sh
+### Изменяем файл kubespray_install.sh
 ![333-002](https://github.com/user-attachments/assets/1cf88681-a366-4982-a9af-2abb3f092be9)
 
-Запускаем bash файл: sh kubespray_install.sh
+### Запускаем bash файл: sh kubespray_install.sh
 ![333-1](https://github.com/user-attachments/assets/b008facd-d976-4156-99e6-382cb42edd5e)
 
-Ожидаем окончание выполнения...
+### Ожидаем окончание выполнения...
 ![333-2](https://github.com/user-attachments/assets/dde6b7aa-be61-48f1-a7a2-1714dee78b38)
 
-Подключаемся к master (ssh 51.250.2.178) переходим в root и выполняем команду...
+### Подключаемся к master (ssh 51.250.2.178) переходим в root и выполняем команду...
 ![333-3](https://github.com/user-attachments/assets/7d8bd310-77ba-449f-870e-281fe769a569)
 
-Копируем config на локальную машину и правим его...'''
-Выполняем команду на локальной машине
+### Копируем config на локальную машину и правим его...
+### Выполняем команду на локальной машине
 ![333-4](https://github.com/user-attachments/assets/322eb98d-327a-428c-a884-8f2313da23d0)
 
 ## 3) Создание тестового приложения
@@ -296,6 +296,8 @@ terraform {
 
 ![444-2](https://github.com/user-attachments/assets/b04b3ae1-5d90-48d5-aa5a-74d396f99f50)
 
+![diplom_test_application](https://github.com/sivoplyas/diplom_test_application)
+ 
 ![444-7](https://github.com/user-attachments/assets/098fcf25-4c60-4906-a13f-469ae4ef381a)
 
 ![444-4](https://github.com/user-attachments/assets/e5a69ad5-e234-443d-9faa-7d5331ad52f8)
