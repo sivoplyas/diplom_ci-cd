@@ -357,7 +357,7 @@ jobs:
                 mkdir -p ~/.kube && echo "${{ secrets.KUBE_CONFIG_BASE64_DATA }}" | base64 -d > ~/.kube/config
                 helm upgrade --install ssa-app-test -f ./helm/values.yaml ./helm/. --namespace ssa --create-namespace --wait --set image.repository="${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}" --set image.tag="${{ github.ref_name }}"
  ```
-## Развертывание в Kubernetes выполняем через Helm Chart
+### Развертывание в Kubernetes выполняем через Helm Chart
 ![555-0](https://github.com/user-attachments/assets/e736795e-eeac-40d1-9877-380d0ca06da7)
 ![555-1](https://github.com/user-attachments/assets/63d1f7ec-0090-47ab-82df-a286e020bae3)
 ![555-2](https://github.com/user-attachments/assets/40cf3267-8400-4b93-a385-235e40f19267)
