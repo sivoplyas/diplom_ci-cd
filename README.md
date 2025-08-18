@@ -379,6 +379,11 @@ jobs:
 
 ## 5) Подготовка cистемы мониторинга и деплой приложения
 ### Создаем публичный репозиторий для cистемы мониторинга ![diplom_monitoring_application]([https://github.com/sivoplyas/diplom_test_application](https://github.com/sivoplyas/diplom_monitoring_application)
+![666-1](https://github.com/user-attachments/assets/2e54adc7-ea88-4a5c-beb2-e229e9961e0b)
+
+### Создаем секреты для работы с GitHub Package Registry и Kubernetes для данного репозитория
+![666-2](https://github.com/user-attachments/assets/5195c3e4-64eb-4ecf-9ba7-15f2d55acc95)
+
 ### Система мониторинга состоит из:
 ### Node Exporter - это экспортер Prometheus, который собирает системные показатели с целевого устройства.
 ### Prometheus — это бесплатное программное приложение, используемое для мониторинга событий и оповещения.
