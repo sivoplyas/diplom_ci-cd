@@ -378,7 +378,7 @@ jobs:
 ![555-9](https://github.com/user-attachments/assets/0201b658-6af0-4a2b-8573-d5bfcc78bf5a)
 
 ## 5) Подготовка cистемы мониторинга и деплой приложения
-### Создаем публичный репозиторий для cистемы мониторинга ![diplom_monitoring_application]([https://github.com/sivoplyas/diplom_test_application](https://github.com/sivoplyas/diplom_monitoring_application)
+### Создаем публичный репозиторий для cистемы мониторинга ![diplom_monitoring_application](https://github.com/sivoplyas/diplom_monitoring_application)
 ![666-1](https://github.com/user-attachments/assets/2e54adc7-ea88-4a5c-beb2-e229e9961e0b)
 
 ### Создаем секреты для работы с GitHub Package Registry и Kubernetes для данного репозитория
