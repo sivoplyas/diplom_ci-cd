@@ -292,3 +292,59 @@ terraform {
 ![333-4](https://github.com/user-attachments/assets/322eb98d-327a-428c-a884-8f2313da23d0)
 
 ## 3) Создание тестового приложения
+![444-1](https://github.com/user-attachments/assets/e1fb6dff-b31b-4586-9b47-ee584a7f8357)
+
+![444-2](https://github.com/user-attachments/assets/b04b3ae1-5d90-48d5-aa5a-74d396f99f50)
+
+![444-7](https://github.com/user-attachments/assets/098fcf25-4c60-4906-a13f-469ae4ef381a)
+
+![444-4](https://github.com/user-attachments/assets/e5a69ad5-e234-443d-9faa-7d5331ad52f8)
+
+![444-5](https://github.com/user-attachments/assets/3e9cf50d-dd75-46ce-a929-24927a321df1)
+
+![444-8](https://github.com/user-attachments/assets/b45b481a-c0ee-4686-ac8d-8be5b31230a5)
+
+![444-6](https://github.com/user-attachments/assets/f0321711-90f3-4671-92c3-8e74599a98ae)
+
+ ```javascript
+name: Docker Deploy
+on:
+  push:
+    tags:
+      - 'v*'
+env:
+    REGISTRY: docker.io
+    IMAGE_NAME: diplom-ssa
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Log in to the Container registry
+              uses: docker/login-action@v1
+              with:
+                registry: ${{ env.REGISTRY }}
+                username: ${{ secrets.DOCKER_USER }}
+                password: ${{ secrets.DOCKER_TOKEN }}
+
+            - name: Extract metadata (tags, labels) for Docker
+              id: meta
+              uses: docker/metadata-action@v2
+              with:
+                images: ${{ env.REGISTRY }}/${{ github.ref_name }}
+            
+            - name: Build and push Docker image
+              uses: docker/build-push-action@v2
+              with:
+                context: .
+                push: true
+                tags: ${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}
+
+            - name: Deploy k8s
+              run: |
+                mkdir -p ~/.kube && echo "${{ secrets.KUBE_CONFIG_BASE64_DATA }}" | base64 -d > ~/.kube/config
+                helm upgrade --install ssa-app-test -f ./helm/values.yaml ./helm/. --namespace ssa --create-namespace --wait --set image.repository="${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}" --set image.tag="${{ github.ref_name }}"
+ ```
