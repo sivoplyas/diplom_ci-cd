@@ -452,7 +452,7 @@ jobs:
 
 ## 6) Результаты
 ### Для того чтобы проверить результаты создаем Network Load Balancer в yandex cloud
-### loadbalancer_z.tf
+### loadbalancer.tf
 ```javascript
 resource "yandex_lb_target_group" "ssa_tg" {
   name      = "ssa-target-group"
