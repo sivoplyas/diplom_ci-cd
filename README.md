@@ -107,7 +107,6 @@ resource "aws_dynamodb_table" "ssa-diplom-table" {
 ### terraform apply
 ![111-03](https://github.com/user-attachments/assets/716c70c2-7191-4fb4-8bc0-6d009eef2a73)
 
-
 ### Проверяем результат:
 Создался сервисный аккаунт "ssa-diplom", который будет в дальнейшем использоваться Terraform для работы с инфраструктурой с необходимыми и достаточными правами - ролью "editor". 
 ![111-04](https://github.com/user-attachments/assets/01055984-f5c4-4e4c-b98c-428cddb4eda0)
@@ -295,7 +294,7 @@ terraform {
 ### Создаем образ на локальной машине (docker build -t nginx:ssa .) и проверяем его работоспособность
 ![444-1](https://github.com/user-attachments/assets/e1fb6dff-b31b-4586-9b47-ee584a7f8357)
 
-### Создаем в своем GitHub Package Registry (https://hub.docker.com) публичный репозиторий «diplom-ssa» и создаем для данного репозитория токен с правами чтение и запись
+### Создаем в своем GitHub Package Registry (https://hub.docker.com) публичный репозиторий и создаем для данного репозитория токен с правами чтение и запись
 ![444-2](https://github.com/user-attachments/assets/b04b3ae1-5d90-48d5-aa5a-74d396f99f50)
 
 ### Создаем публичный репозиторий для тестового приложения куда и отправляем файлы для создания образа ![diplom_test_application](https://github.com/sivoplyas/diplom_test_application)
@@ -307,8 +306,10 @@ terraform {
 ### Полагаем что любые коммиты в репозитории с тестовым приложением будут проводиться в ветке отличной от “main”. Пишем код..
 ![444-5](https://github.com/user-attachments/assets/3e9cf50d-dd75-46ce-a929-24927a321df1)
 
+### Выполнение Workflow Docker Build
 ![444-8](https://github.com/user-attachments/assets/b45b481a-c0ee-4686-ac8d-8be5b31230a5)
 
+### Проверка создания образа в GitHub Package Registry c тегом latest
 ![444-6](https://github.com/user-attachments/assets/f0321711-90f3-4671-92c3-8e74599a98ae)
 
  ```javascript
