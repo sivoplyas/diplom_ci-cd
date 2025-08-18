@@ -450,7 +450,7 @@ jobs:
 ![666-9](https://github.com/user-attachments/assets/2f31fc47-a927-4f6b-93fb-0ff2ac7ea454)
 ![666-10](https://github.com/user-attachments/assets/af2db13e-aa2b-437b-b567-fb9b85132773)
 
-## 6) Заключение
+## 6) Результаты
 ### Для того чтобы проверить результаты создаем Network Load Balancer в yandex cloud
 ### loadbalancer_z.tf
 ```javascript
@@ -496,4 +496,17 @@ resource "yandex_lb_network_load_balancer" "ssa-loadbalancer" {
 ### Проверяем в yandex cloud
 ![777-1](https://github.com/user-attachments/assets/fe26d09b-974a-40b9-bb04-a26917ba9f1b)
 ![777-2](https://github.com/user-attachments/assets/cd7c34fd-6cb5-4ca5-aaa2-46db56b4fad5)
+
+### Проверяем работу тестового приложения
+![777-3](https://github.com/user-attachments/assets/b404d2be-2237-46a2-b839-d8769e18de64)
+![777-4](https://github.com/user-attachments/assets/0e5c7548-d063-4a67-b1f9-e18a604cb4b9)
+
+### Проверяем работу системы мониторинга
+![777-5](https://github.com/user-attachments/assets/15361c6d-a50e-458a-a82e-08e93800dd05)
+![777-6](https://github.com/user-attachments/assets/a92c9abd-df36-4784-be15-53b2573a69bb)
+![777-7](https://github.com/user-attachments/assets/4cb89511-b801-448d-9efa-2654bd62f556)
+![777-8](https://github.com/user-attachments/assets/afde7b36-71b7-4983-8d63-1f80ca5b81e7)
+![777-9](https://github.com/user-attachments/assets/4fe43e17-06b6-4613-94ec-b930ab37953f)
+
+
 
