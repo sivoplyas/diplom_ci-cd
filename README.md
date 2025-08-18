@@ -296,8 +296,7 @@ terraform {
 
 ![444-2](https://github.com/user-attachments/assets/b04b3ae1-5d90-48d5-aa5a-74d396f99f50)
 
-![diplom_test_application](https://github.com/sivoplyas/diplom_test_application)
- 
+### Создаем публичный репозиторий для тестового приложения куда помещаем файлы для создания образа ![diplom_test_application](https://github.com/sivoplyas/diplom_test_application)
 ![444-7](https://github.com/user-attachments/assets/098fcf25-4c60-4906-a13f-469ae4ef381a)
 
 ![444-4](https://github.com/user-attachments/assets/e5a69ad5-e234-443d-9faa-7d5331ad52f8)
