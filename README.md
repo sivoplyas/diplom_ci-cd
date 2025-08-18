@@ -300,7 +300,7 @@ terraform {
 ### Создаем публичный репозиторий для тестового приложения куда и отправляем файлы для создания образа ![diplom_test_application](https://github.com/sivoplyas/diplom_test_application)
 ![444-7](https://github.com/user-attachments/assets/098fcf25-4c60-4906-a13f-469ae4ef381a)
 
-### Создаем секреты для работы с GitHub Package Registry и  Kubernetes
+### Создаем секреты для работы с GitHub Package Registry и Kubernetes
 ![444-4](https://github.com/user-attachments/assets/e5a69ad5-e234-443d-9faa-7d5331ad52f8)
 
 ### Полагаем что любые коммиты в репозитории с тестовым приложением будут проводиться в ветке отличной от “main”. Пишем код..
@@ -312,6 +312,9 @@ terraform {
 ### Проверка создания образа в GitHub Package Registry c тегом latest
 ![444-6](https://github.com/user-attachments/assets/f0321711-90f3-4671-92c3-8e74599a98ae)
 
+## 4) Установка и настройка CI/CD
+
+### Полагаем что создании тега (начинающего с буквы v) будет присваиваться только в ветке main. При создании тега происходит сборка и отправка с соответствующим label в регистри, а также деплой соответствующего Docker образа в кластер Kubernetes
  ```javascript
 name: Docker Deploy
 on:
@@ -354,3 +357,9 @@ jobs:
                 mkdir -p ~/.kube && echo "${{ secrets.KUBE_CONFIG_BASE64_DATA }}" | base64 -d > ~/.kube/config
                 helm upgrade --install ssa-app-test -f ./helm/values.yaml ./helm/. --namespace ssa --create-namespace --wait --set image.repository="${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}" --set image.tag="${{ github.ref_name }}"
  ```
+## Развертывание в Kubernetes выполняем через Helm Chart
+![555-0](https://github.com/user-attachments/assets/e736795e-eeac-40d1-9877-380d0ca06da7)
+![555-1](https://github.com/user-attachments/assets/63d1f7ec-0090-47ab-82df-a286e020bae3)
+![555-2](https://github.com/user-attachments/assets/40cf3267-8400-4b93-a385-235e40f19267)
+![555-3](https://github.com/user-attachments/assets/1854a9d9-d7fe-42e1-b6b8-18526e60815f)
+
