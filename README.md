@@ -303,7 +303,7 @@ terraform {
 ### Создаем секреты для работы с GitHub Package Registry и Kubernetes
 ![444-4](https://github.com/user-attachments/assets/e5a69ad5-e234-443d-9faa-7d5331ad52f8)
 
-### Полагаем что любые коммиты в репозитории с тестовым приложением будут проводиться в ветке отличной от “main”. Пишем код..
+### Полагаем, что любые тестовые коммиты в репозитории с тестовым приложением будут проводиться в ветке отличной от “main”. Пишем код..
 ![444-5](https://github.com/user-attachments/assets/3e9cf50d-dd75-46ce-a929-24927a321df1)
 
 ### Выполнение Workflow Docker Build
@@ -314,7 +314,7 @@ terraform {
 
 ## 4) Установка и настройка CI/CD
 
-### Полагаем что создании тега (начинающего с буквы v) будет присваиваться только в ветке main. При создании тега происходит сборка и отправка с соответствующим label в регистри, а также деплой соответствующего Docker образа в кластер Kubernetes
+### Полагаем, что создании тега (начинающего с буквы v) будет присваиваться только в ветке main. При создании тега происходит сборка и отправка с соответствующим label в регистри, а также деплой соответствующего Docker образа в кластер Kubernetes
  ```javascript
 name: Docker Deploy
 on:
@@ -451,7 +451,7 @@ jobs:
 ![666-10](https://github.com/user-attachments/assets/af2db13e-aa2b-437b-b567-fb9b85132773)
 
 ## 6) Результаты
-### Для того чтобы проверить результаты создаем Network Load Balancer в yandex cloud
+### Создаем Network Load Balancer в yandex cloud
 ### loadbalancer.tf
 ```javascript
 resource "yandex_lb_target_group" "ssa_tg" {
