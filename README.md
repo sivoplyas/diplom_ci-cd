@@ -363,3 +363,15 @@ jobs:
 ![555-2](https://github.com/user-attachments/assets/40cf3267-8400-4b93-a385-235e40f19267)
 ![555-3](https://github.com/user-attachments/assets/1854a9d9-d7fe-42e1-b6b8-18526e60815f)
 
+### Устанавливаем тег для тестового приложения v1.0.3
+![555-4](https://github.com/user-attachments/assets/05bf4fd0-032e-499f-81ef-d50510b9a6a1)
+
+### Выполнение Workflow Docker Deploy
+![555-5](https://github.com/user-attachments/assets/163dee98-759d-42f7-9dcc-558920ce255e)
+
+### Проверяем развертывание в Kubernetes образа
+![555-6](https://github.com/user-attachments/assets/7a4f3120-0603-4e07-8da2-609aaac06072)
+![555-7](https://github.com/user-attachments/assets/fe6c6b07-ec27-4936-afe8-5accb3998fef)
+![555-8](https://github.com/user-attachments/assets/e0071e86-040a-4c95-821b-7b6c032ad754)
+
+
