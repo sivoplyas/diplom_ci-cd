@@ -400,5 +400,46 @@ jobs:
 ![666-6](https://github.com/user-attachments/assets/1bd154ba-b4b7-4648-addb-30bc12c9f48f)
 
 ### Workflow для cистемы мониторинга и proxy
-![666-7](https://github.com/user-attachments/assets/ec74f91f-6158-4846-83f8-f1c241d47840)
+ ```javascript
+name: Deploy monitoring
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+    types: [closed]
 
+env:
+    REGISTRY: docker.io
+    IMAGE_NAME: diplom-ssa
+    IMAGE_TAG: latest
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Log in to the Container registry
+              uses: docker/login-action@v1
+              with:
+                registry: ${{ env.REGISTRY }}
+                username: ${{ secrets.DOCKER_USER }}
+                password: ${{ secrets.DOCKER_TOKEN }}
+      
+            - name: Extract metadata (tags, labels) for Docker
+              id: meta
+              uses: docker/metadata-action@v2
+              with:
+                images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+            
+            - name: Deploy k8s
+              run: |
+                mkdir -p ~/.kube && echo "${{ secrets.KUBE_CONFIG_BASE64_DATA }}" | base64 -d > ~/.kube/config
+                kubectl apply -f ./kube-metrics/.
+                helm upgrade --install node-exporter -f ./node-exporter/values.yaml ./node-exporter/. --version 1.6.0 --namespace monitoring --create-namespace --wait
+                helm upgrade --install prometheus -f ./prometheus/values.yaml ./prometheus/. --version 1.6.0 --namespace monitoring --create-namespace --wait
+                helm upgrade --install grafana -f ./grafana/values.yaml ./grafana/. --version 1.5.1 --namespace monitoring --create-namespace --wait
+                helm upgrade --install proxy -f ./proxy/values.yaml ./proxy/. --version 1.0.1 --namespace monitoring --create-namespace --wait
+ ```
